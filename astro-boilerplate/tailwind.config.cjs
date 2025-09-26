@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   darkMode: ["variant", [".dark &", '[data-kb-theme="dark"] &']],
   content: ["./src/**/*.{ts,tsx}"],
@@ -12,6 +13,10 @@ export default {
       }
     },
     extend: {
+      fontFamily: {
+        muli: ['Muli', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

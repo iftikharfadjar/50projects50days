@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Button } from "../components/ui/button.tsx"
+import { ExpandingCard } from "../components/components/ExpandingCard.tsx"
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-     <Button variant="default" client:only="solid-js">Check out the Astro documentation</Button>
+<Layout styleFor='font-muli flex items-center justify-center h-screen overflow-hidden m-0'>
+     <div class="flex w-[90vw]">
+          <ExpandingCard active={true} client:load>
+     </div>
      
 </Layout>

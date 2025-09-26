@@ -1,5 +1,9 @@
 ---
 import "~/app.css";
+export interface Props {
+  styleFor?: string;
+}
+const { styleFor = "m-0 w-full h-full" } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,16 +15,21 @@ import "~/app.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class={styleFor}>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
+<!-- <style>
+	
+	
+		html,
+		body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		background-color: aqua;
 	}
-</style>
+  
+	
+</style> -->
