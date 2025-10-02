@@ -4,6 +4,8 @@ export interface Props {
   styleFor?: string;
 }
 const { styleFor = "m-0 w-full h-full" } = Astro.props;
+import { Button } from "../components/ui/button.tsx"
+import { cn } from "~/lib/utils";
 ---
 
 <!doctype html>
@@ -16,6 +18,7 @@ const { styleFor = "m-0 w-full h-full" } = Astro.props;
 		<title>Astro Basics</title>
 	</head>
 	<body class={styleFor}>
+		<Button size="sm" class={cn("absolute top-0 left-0 m-5 z-[100] bg-red-600", Astro.url.pathname == "/" ? "opacity-0": "opacity-100")}><a href="/">Home</a></Button>
 		<slot />
 	</body>
 </html>

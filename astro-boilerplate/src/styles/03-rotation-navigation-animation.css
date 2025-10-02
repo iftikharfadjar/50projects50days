@@ -1,0 +1,19 @@
+@import "./global.css";
+
+.progress-container {
+    @apply flex justify-between relative mb-8 max-w-full w-[350px]; 
+  
+    &::before {
+      content: '';
+      background-color: var(--line-border-empty);
+      @apply absolute top-1/2 left-0 -translate-y-1/2 h-1 w-full -z-10;
+    }
+  }
+
+.progress {
+  @apply bg-[var(--line-border-fill)] absolute top-1/2 left-0 -translate-y-1/2 h-1 w-0 -z-10 transition-all duration-400 ease-in-out;
+}
+  
+/* .circle {
+  @apply bg-[#f1f1f1] text-[#e2e2e2] rounded-full h-[30px] w-[30px] flex items-center justify-center border-[3px] border-[var(--line-border-empty)] transition-all duration-400 ease-in-out;
+} */

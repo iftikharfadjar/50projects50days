@@ -14,6 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        lato :['Lato', 'sans-serif'],
         muli: ['Muli', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
