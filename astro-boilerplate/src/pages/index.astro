@@ -6,7 +6,9 @@ import { Button } from "../components/ui/button.tsx"
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-     <Button variant="default" client:only="solid-js">Check out the Astro documentation</Button>
+<Layout styleFor='font-muli flex flex-col gap-5 items-center justify-center h-screen overflow-hidden m-0 bg-[#f1f1f1]'>
+      
+     <Button class="w-80 shadow-lg bg-white" variant="outline" client:only="solid-js"><a href="/01-expanding-card">01-expanding-card</a></Button>
+     <Button class="w-80 shadow-lg bg-white" variant="outline" client:only="solid-js"><a href="/02-progress-step">02-progress-step</a></Button>
      
 </Layout>

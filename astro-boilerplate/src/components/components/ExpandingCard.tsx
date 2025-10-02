@@ -2,17 +2,13 @@ import {cn} from "~/lib/utils"
 // import { Component } from "solid-js";
 import { createSignal, For } from "solid-js";
 
-type PanelProps = {
-    active?: boolean;
-  };
-
   type PanelDataType = {
     id: number,
     title: string,
     uri: string
   };
 
-export const ExpandingCard  = (props : PanelProps) => {
+export const ExpandingCard  = () => {
 
     // const {active} = props.active
     const panel = cn("bg-cover bg-center bg-no-repeat h-[80vh] text-white rounded-[50px] cursor-pointer m-[10px] relative transition-all duration-[700ms] ease-in");
