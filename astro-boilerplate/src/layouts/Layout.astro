@@ -14,11 +14,12 @@ import { cn } from "~/lib/utils";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
 	<body class={styleFor}>
-		<Button size="sm" class={cn("absolute top-0 left-0 m-2 z-[100] bg-red-600", Astro.url.pathname == "/" ? "opacity-0": "opacity-100")}><a href="/">Home</a></Button>
+		<Button size="sm" class={cn("absolute top-0 left-1/2 m-2 z-[100] bg-red-600", Astro.url.pathname == "/" ? "opacity-0": "opacity-100")}><a href="/">Home</a></Button>
 		<slot />
 	</body>
 </html>

@@ -3,15 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import "~/styles/03-rotation-navigation-animation.css";
 
 import { Button } from "../components/ui/button.tsx"
-import { ProgessStep } from "../components/components/ProgressStep.tsx"
+import { RotNavAnim } from "../components/components/RotNavAnim.tsx"
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout styleFor='font-muli flex items-center justify-center h-screen overflow-hidden m-0 bg-[#f1f1f1]'>
+<Layout styleFor="font-sans bg-[#333] text-[#222] overflow-x-hidden m-0">
      <div class="text-center">
-          <ProgessStep client:load>
+          <RotNavAnim client:load>
      </div>
      
 </Layout>

@@ -1,19 +1,90 @@
 @import "./global.css";
 
-.progress-container {
-    @apply flex justify-between relative mb-8 max-w-full w-[350px]; 
-  
-    &::before {
-      content: '';
-      background-color: var(--line-border-empty);
-      @apply absolute top-1/2 left-0 -translate-y-1/2 h-1 w-full -z-10;
+
+.container {
+  @apply bg-[#fafafa] origin-top-left transition-transform duration-500 ease-linear w-screen min-h-screen p-[50px];
+
+  &.show-nav {
+    @apply -rotate-[20deg];
+
+    .circle {
+      @apply -rotate-[70deg];
+    }
+  }
+}
+
+.circle-container {
+  @apply fixed top-[-100px] left-[-100px];
+}
+
+.circle {
+  @apply bg-[#ff7979] h-[200px] w-[200px] rounded-full relative transition-transform duration-500 ease-linear;
+
+  button {
+    @apply cursor-pointer absolute top-1/2 left-1/2 h-[100px] bg-transparent border-0 text-[26px] text-white;
+
+    &:focus {
+      @apply outline-none;
+    }
+
+    &#open {
+      @apply left-[60%];
+    }
+
+    &#close {
+      @apply top-[60%] rotate-90 origin-top-left;
+    }
+  }
+}
+
+nav {
+  @apply fixed bottom-[40px] left-0 z-[100];
+
+  ul {
+    @apply list-none pl-[30px];
+
+    li {
+      @apply uppercase text-white my-[40px] -translate-x-full transition-transform ease-in duration-400;
+
+      i {
+        @apply text-[20px] mr-[10px];
+      }
+
+      /* Tailwind doesn't have nth-of-type, use manual classes instead */
+      &:nth-child(2) {
+        @apply ml-[15px] -translate-x-[150%];
+      }
+      &:nth-child(3) {
+        @apply ml-[30px] -translate-x-[200%];
+      }
     }
   }
 
-.progress {
-  @apply bg-[var(--line-border-fill)] absolute top-1/2 left-0 -translate-y-1/2 h-1 w-0 -z-10 transition-all duration-400 ease-in-out;
+  a {
+    @apply text-[#fafafa] no-underline transition-all duration-500;
+
+    &:hover {
+      @apply text-[#ff7979] font-bold;
+    }
+  }
 }
-  
-/* .circle {
-  @apply bg-[#f1f1f1] text-[#e2e2e2] rounded-full h-[30px] w-[30px] flex items-center justify-center border-[3px] border-[var(--line-border-empty)] transition-all duration-400 ease-in-out;
-} */
+
+.content {
+  @apply max-w-[1000px] my-[50px] mx-auto;
+
+  img {
+    @apply max-w-full;
+  }
+
+  h1 {
+    @apply m-0;
+  }
+
+  small {
+    @apply text-[#555] italic;
+  }
+
+  p {
+    @apply text-[#333] leading-relaxed;
+  }
+}
