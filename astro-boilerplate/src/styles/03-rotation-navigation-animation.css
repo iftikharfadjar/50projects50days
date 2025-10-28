@@ -1,7 +1,7 @@
 @import "./global.css";
 
 
-.container {
+.container-this {
   @apply bg-[#fafafa] origin-top-left transition-transform duration-500 ease-linear w-screen min-h-screen p-[50px];
 
   &.show-nav {
@@ -9,6 +9,10 @@
 
     .circle {
       @apply -rotate-[70deg];
+    }
+
+    +nav li{
+        @apply translate-x-0 delay-[300ms];
     }
   }
 }
@@ -38,12 +42,8 @@
 }
 
 nav {
-  @apply fixed bottom-[40px] left-0 z-[100];
-
   ul {
-    @apply list-none pl-[30px];
-
-    li {
+     li {
       @apply uppercase text-white my-[40px] -translate-x-full transition-transform ease-in duration-400;
 
       i {

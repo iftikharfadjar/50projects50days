@@ -5,15 +5,17 @@ import { createSignal, For } from "solid-js";
 import { Button } from "~/components/ui/button.tsx"
 
 export const RotNavAnim = () => {
+
+  const [activePanel, setActivePanel] = createSignal<boolean>(false);
  return(
     <>
-    <div class="container">
+    <div class={cn("container-this",activePanel()? "show-nav":"")}>
       <div class="circle-container">
         <div class="circle">
-          <button id="close">
+          <button onClick={() => setActivePanel(false)} id="close">
             <i class="fas fa-times"></i>
           </button>
-          <button id="open">
+          <button onClick={() => setActivePanel(true)} id="open">
             <i class="fas fa-bars"></i>
           </button>
         </div>
@@ -30,8 +32,8 @@ export const RotNavAnim = () => {
       </div>
     </div>
 
-    <nav>
-      <ul>
+    <nav class="fixed bottom-[40px] left-0 z-[100]">
+      <ul class="list-none pl-[30px]">
         <li><i class="fas fa-home"></i><a href="#"> Home</a></li>
         <li><i class="fas fa-user-alt"></i><a href="#"> About</a></li>
         <li><i class="fas fa-envelope"></i><a href="#"> Contact</a></li>
