@@ -17,6 +17,7 @@ export default {
         lato :['Lato', 'sans-serif'],
         muli: ['Muli', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
+        open: ['Open Sans', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
