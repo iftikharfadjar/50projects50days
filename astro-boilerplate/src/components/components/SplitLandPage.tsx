@@ -10,7 +10,8 @@ export const SplitLandPage = () => {
     return (
         <>
             <div class={cn("container-this", hoverClass())}>
-                <div style={`background-image: url('ps.jpg')`} class="split left"
+                <div
+                    class="split left"
                     onMouseEnter={() => handleEnter("left")}
                     onMouseLeave={handleLeave}
                 >

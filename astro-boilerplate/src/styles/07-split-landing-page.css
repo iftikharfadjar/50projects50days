@@ -51,7 +51,7 @@
 
   .split.left {
     @apply left-0 bg-no-repeat bg-cover;
-    background-image: url('ps.jpg');
+    background-image: url('../assets/ps.jpg');
   }
 
   .split.left::before {
@@ -62,7 +62,7 @@
 
   .split.right {
     @apply right-0 bg-no-repeat bg-cover;
-    background-image: url('xbox.jpg');
+    background-image: url('../assets/xbox.jpg');
   }
 
   .split.right::before {
