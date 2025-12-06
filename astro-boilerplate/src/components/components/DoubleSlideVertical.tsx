@@ -36,18 +36,22 @@ export const DoubleSlideVertical   = () => {
 
    onMount(() => {
       const rightDivs = slideRight.querySelectorAll("div");
+      console.log("right div = " + rightDivs.length)
       setSlidesLength(rightDivs.length);
       slideLeft.style.top = `-${(rightDivs.length - 1) * 100}vh`;
     });
 
    const changeSlide = (direction) => {
     const sliderHeight = sliderContainer.clientHeight;
+    console.log("sliderHeight = " + sliderHeight)
     let newIndex = activeSlideIndex();
-
+    console.log("newIndex = " + newIndex)
     if (direction === "up") {
       newIndex = newIndex + 1 >= slidesLength() ? 0 : newIndex + 1;
+      console.log("newIndex up = " + newIndex)
     } else if (direction === "down") {
       newIndex = newIndex - 1 < 0 ? slidesLength() - 1 : newIndex - 1;
+      console.log("newIndex down = " + newIndex)
     }
 
     setActiveSlideIndex(newIndex);

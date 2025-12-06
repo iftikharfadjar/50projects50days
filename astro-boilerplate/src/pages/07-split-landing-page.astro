@@ -1,16 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "~/styles/07-split-landing-page.css";
+
 import { Button } from "../components/ui/button.tsx";
-import { ExpandingCard } from "../components/components/ExpandingCard.tsx";
+import { SplitLandPage } from "../components/components/SplitLandPage";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout
-     styleFor="font-muli flex items-center justify-center h-screen overflow-hidden "
->
-     <div class="flex w-[90vw]">
-          <ExpandingCard client:load />
-     </div></Layout
->
+<Layout styleFor="font-sans bg-[#333] text-[#222] overflow-x-hidden m-0">
+    <SplitLandPage client:load />
+</Layout>
