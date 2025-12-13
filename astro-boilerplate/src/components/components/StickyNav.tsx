@@ -1,15 +1,31 @@
 import { cn } from "~/lib/utils"
 // import { Component } from "solid-js";
-import { createSignal, For, onMount } from "solid-js";
+import { createSignal, For, onMount , onCleanup} from "solid-js";
 
 
 export const StickyNav = () => {
-    const [hoverClass, setHoverClass] = createSignal('');
-    const handleEnter = (side: string) => setHoverClass(`hover-${side}`);
-    const handleLeave = () => setHoverClass('');
+ let navRef;
+
+  const fixNav = () => {
+    if (window.scrollY > navRef.offsetHeight + 150) {
+      console.log("active")
+      navRef.classList.add("active");
+    } else {
+      navRef.classList.remove("active");
+      console.log("non")
+    }
+  };
+
+  onMount(() => {
+    window.addEventListener("scroll", fixNav);
+  });
+
+  onCleanup(() => {
+    window.removeEventListener("scroll", fixNav);
+  });
     return (
   <>
-    <nav class="nav">
+    <nav ref={navRef} class="navRef">
       <div class="container-this">
         <h1 class="logo"><a href="/index.html">My Website</a></h1>
         <ul>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// import "~/styles/26-double-rotation-vertical.css";
+import "~/styles/25-sticky-navbar.css";
 
 import { Button } from "../components/ui/button.tsx"
 import { StickyNav } from "../components/components/StickyNav.tsx"
@@ -10,5 +10,5 @@ import { StickyNav } from "../components/components/StickyNav.tsx"
 ---
 
 <Layout styleFor="font-open h-screen">
-    <StickyNav client:load>
+    <StickyNav client:only="solid-js">
 </Layout>

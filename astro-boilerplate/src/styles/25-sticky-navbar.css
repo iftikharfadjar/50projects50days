@@ -1,0 +1,75 @@
+@import "./global.css";
+/* =========================
+   Components
+========================= */
+@layer components {
+  .container-this {
+    @apply max-w-[1200px] mx-auto;
+  }
+
+  /* Navigation */
+  .navRef {
+    @apply fixed top-0 left-0 right-0 bg-[#222] transition-all duration-300 ease-in-out;
+  }
+
+  .navRef .container-this {
+    @apply flex justify-between items-center py-5 transition-all duration-300 ease-in-out;
+  }
+
+  .navRef ul {
+    @apply flex list-none items-center justify-center;
+  }
+
+  .navRef a {
+    @apply text-white no-underline px-[15px] py-[7px] transition-all duration-300 ease-in-out;
+  }
+
+  .navRef.active {
+    @apply bg-white shadow-[0_2px_10px_rgba(0,0,0,0.3)];
+  }
+
+  .navRef.active a {
+    @apply text-black;
+  }
+
+  .navRef.active .container-this {
+    @apply py-[10px];
+  }
+
+  .navRef a.current,
+  .navRef a:hover {
+    @apply text-[#c0392b] font-bold;
+  }
+
+  /* Hero */
+  .hero {
+    @apply h-screen flex justify-center items-center text-center text-white relative mb-5 z-[-2];
+    background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+  }
+
+  .hero::before {
+    content: '';
+    @apply absolute inset-0 bg-black/50 z-[-1];
+  }
+
+  .hero h1 {
+    @apply text-[46px] mt-[-20px] mb-5;
+  }
+
+  .hero p {
+    @apply text-[20px] tracking-[1px];
+  }
+
+  /* Content */
+  .content h2,
+  .content h3 {
+    @apply text-[150%] my-5;
+  }
+
+  .content p {
+    @apply text-[#555] leading-[30px] tracking-[1.2px];
+  }
+}
