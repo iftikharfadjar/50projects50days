@@ -82,16 +82,19 @@ export const PortfolioCv = () => {
             <div ref={sliderContainer} class={cn("slider-container", hoverClass())}>
                 {/* Left side */}
                 <div
-                    ref={leftRef} class="left-slide"
-                    onMouseEnter={() => handleEnter("left")}
+                    ref={leftRef} class="left-slide left"
+                    onMouseEnter={() => {
+                        console.log("left onMouseEnter")
+                        handleEnter("left")
+                    }
+                    }
                     onMouseLeave={handleLeave}
                 >
                     <For each={bgPairList}>
                         {(bgPair) => (
                             <div
                                 style={`background-color:${bgPair[0].color}`}
-                                onMouseEnter={() => handleEnter("left")}
-                                onMouseLeave={handleLeave}
+                            //onMouseEnter={() => handleEnter("left")} onMouseLeave={handleLeave}
                             >
                                 <h1 class="text-[40px] mb-[10px] -mt-[30px]">{bgPair[0].title}</h1>
                                 <p>{bgPair[0].subTitle}</p>
@@ -101,15 +104,14 @@ export const PortfolioCv = () => {
                 </div>
 
                 {/* Right side */}
-                <div ref={rightRef} class="right-slide"
+                <div ref={rightRef} class="right-slide right"
                     onMouseEnter={() => handleEnter("right")}
                     onMouseLeave={handleLeave}
                 >
                     <For each={bgPairList}>
                         {(bgPair) => (
                             <div style={`background-image: url('${bgPair[1]}')`}
-                                onMouseEnter={() => handleEnter("right")}
-                                onMouseLeave={handleLeave}
+                            //onMouseEnter={() => handleEnter("right")} onMouseLeave={handleLeave}
                             ></div>
                         )}
                     </For>

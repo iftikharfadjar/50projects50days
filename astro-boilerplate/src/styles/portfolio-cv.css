@@ -2,10 +2,6 @@
 
 
 :root {
-  --left-bg-color: rgba(87, 84, 236, 0.7);
-  --right-bg-color: rgba(43, 43, 43, 0.8);
-  --left-btn-hover-color: rgba(87, 84, 236, 1);
-  --right-btn-hover-color: rgba(28, 122, 28, 1);
   --hover-width: 75%;
   --other-width: 25%;
   --speed: 1000ms;
@@ -50,7 +46,7 @@
 }
 /* Left Slide */
 .left-slide {
-  @apply absolute top-0 left-0 h-full w-[35%] transition-transform duration-500 ease-in-out;
+  @apply absolute top-0 left-0 h-full w-[50%] transition-all duration-1000 ease-in-out;
 }
 
 .left-slide > div {
@@ -63,7 +59,7 @@
 
 /* Right Slide */
 .right-slide {
-  @apply absolute top-0 left-[35%] h-full w-[65%] transition-transform duration-500 ease-in-out;
+  @apply absolute top-0 left-[50%] h-full w-[50%] transition-all duration-1000 ease-in-out;
 }
 
 .right-slide > div {
@@ -77,10 +73,12 @@
 
   .hover-left .right {
     width: var(--other-width);
+    left: var(--hover-width);
   }
 
   .hover-right .right {
     width: var(--hover-width);
+    left: var(--other-width);
   }
 
   .hover-right .left {
