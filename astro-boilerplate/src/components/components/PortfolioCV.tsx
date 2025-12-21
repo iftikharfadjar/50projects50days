@@ -62,7 +62,17 @@ export const PortfolioCv   = () => {
 
    return (
     <>
-      <div ref={sliderContainer} class="relative overflow-hidden w-screen h-screen">
+  <nav ref={navRef} class="navRef">
+      <div class="container-this">
+        <h1 class="logo"><a href="/index.html">My Website</a></h1>
+        <ul>
+          <li><a href="#" class="current">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>    <div ref={sliderContainer} class="relative overflow-hidden w-screen h-screen">
           {/* Left side */}
           <div ref={slideRight} class="absolute top-0 left-0 h-full w-[35%] transition-transform duration-500 ease-in-out">
             <For each={bgPairList}>

@@ -1,0 +1,79 @@
+@import "./global.css";
+
+
+/* Slider Container */
+.slider-container {
+  @apply relative overflow-hidden w-screen h-screen;
+}
+
+.navRef {
+  @apply fixed top-0 left-0 right-0 bg-[#222] transition-all duration-300 ease-in-out;
+}
+
+.navRef .container-this {
+  @apply flex justify-between items-center py-5 transition-all duration-300 ease-in-out;
+}
+
+.navRef ul {
+  @apply flex list-none items-center justify-center;
+}
+
+.navRef a {
+  @apply text-white no-underline px-[15px] py-[7px] transition-all duration-300 ease-in-out;
+}
+
+.navRef.active {
+  @apply bg-white shadow-[0_2px_10px_rgba(0,0,0,0.3)];
+}
+
+.navRef.active a {
+  @apply text-black;
+}
+
+.navRef.active .container-this {
+  @apply py-[10px];
+}
+
+  .navRef a.current,
+  .navRef a:hover {
+    @apply text-[#c0392b] font-bold;
+  }
+/* Left Slide */
+.left-slide {
+  @apply absolute top-0 left-0 h-full w-[35%] transition-transform duration-500 ease-in-out;
+}
+
+.left-slide > div {
+  @apply h-full w-full flex flex-col items-center justify-center text-white;
+}
+
+.left-slide h1 {
+  @apply text-[40px] mb-[10px] -mt-[30px];
+}
+
+/* Right Slide */
+.right-slide {
+  @apply absolute top-0 left-[35%] h-full w-[65%] transition-transform duration-500 ease-in-out;
+}
+
+.right-slide > div {
+  @apply bg-no-repeat bg-cover bg-center h-full w-full;
+}
+
+/* Buttons */
+/* button {
+  @apply bg-white border-0 text-gray-400 cursor-pointer text-[16px] p-[15px] hover:text-gray-800 focus:outline-none;
+} */
+
+/* Action Buttons Position */
+.slider-container .action-buttons button {
+  @apply absolute left-[35%] top-1/2 z-[100];
+}
+
+.slider-container .action-buttons .down-button {
+  @apply -translate-x-full rounded-tl-md rounded-bl-md;
+}
+
+.slider-container .action-buttons .up-button {
+  @apply -translate-y-full rounded-tr-md rounded-br-md;
+}
