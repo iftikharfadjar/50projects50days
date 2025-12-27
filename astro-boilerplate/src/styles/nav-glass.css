@@ -1,0 +1,485 @@
+/* Glassmorphism Navigation Styles - iPhone Island */
+
+.glass-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  width: fit-content;
+  max-width: 90%;
+  overflow: hidden;
+  will-change: width, padding, transform;
+}
+
+/* Greeting Mode - Small width */
+.glass-nav.greeting-mode {
+  width: auto;
+  min-width: auto;
+  padding: 0.75rem 2rem;
+  animation: gentle-breathe 3s ease-in-out infinite;
+}
+
+/* Menu Mode - Expanded width */
+.glass-nav.menu-mode {
+  width: auto;
+  min-width: 400px;
+  animation: subtle-expand 0.8s ease-out;
+}
+
+@keyframes gentle-breathe {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.02); }
+}
+
+@keyframes subtle-expand {
+  0% { transform: translateX(-50%) scale(0.98); }
+  50% { transform: translateX(-50%) scale(1.01); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.glass-nav.scrolled {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  top: 15px;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.glass-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  min-height: 40px;
+}
+
+/* Greeting Styles */
+.glass-greeting {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  letter-spacing: -0.3px;
+  will-change: opacity, transform;
+}
+
+.glass-greeting.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.glass-greeting.hidden {
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+  position: absolute;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Menu Styles */
+.glass-menu-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+.glass-menu-wrapper.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: smooth-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-menu-wrapper.hidden {
+  opacity: 0;
+  transform: scale(0.92) translateY(8px);
+  position: absolute;
+  pointer-events: none;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes smooth-appear {
+  0% { 
+    opacity: 0;
+    transform: scale(0.85) translateY(15px);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.glass-logo a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.5px;
+}
+
+.glass-logo a:hover {
+  color: #666;
+  transform: scale(1.05);
+}
+
+.glass-menu-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.glass-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-menu.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.glass-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  font-size: 0.95rem;
+  will-change: transform, background;
+}
+
+.glass-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-link:hover::before {
+  width: 120%;
+  height: 120%;
+  border-radius: 0.75rem;
+}
+
+.glass-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.03);
+  color: #222;
+}
+
+.glass-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #333;
+  padding: 0.5rem 1.25rem;
+  border-radius: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(10px);
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  will-change: transform, box-shadow;
+}
+
+.glass-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.glass-button:active {
+  transform: translateY(-1px) scale(0.99);
+  transition: all 0.15s ease;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 3px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger span {
+  width: 20px;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.glass-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>') repeat;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.glass-hero-content {
+  text-align: center;
+  z-index: 1;
+  color: white;
+  padding-top: 80px;
+}
+
+.glass-hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.glass-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glass-content {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.glass-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-section:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.glass-section h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.glass-section p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Dark theme support */
+.dark .glass-nav {
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-nav.scrolled {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark .glass-logo a,
+.dark .glass-link,
+.dark .glass-button {
+  color: #fff;
+}
+
+.dark .glass-section {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass-section h2 {
+  color: #fff;
+}
+
+.dark .glass-section p {
+  color: #ccc;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .glass-nav {
+    top: 15px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .glass-nav.scrolled {
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Greeting mode on mobile */
+  .glass-nav.greeting-mode {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* Menu mode on mobile */
+  .glass-nav.menu-mode {
+    min-width: 320px;
+  }
+  
+  .glass-container {
+    gap: 0.5rem;
+  }
+  
+  .glass-greeting {
+    font-size: 1rem;
+  }
+  
+  .glass-menu-wrapper {
+    gap: 0.5rem;
+  }
+  
+  .glass-menu-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 200px;
+  }
+  
+  .glass-menu.open + .glass-cta,
+  .glass-menu-container:has(.glass-menu.open) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .glass-menu {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .glass-link {
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+  
+  .glass-cta {
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 0.5rem;
+  }
+  
+  .glass-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .glass-hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .glass-hero-content p {
+    font-size: 1rem;
+  }
+  
+  .glass-hero-content {
+    padding-top: 100px;
+  }
+}
